@@ -4,6 +4,14 @@ import static sort.Utils.printArr;
 
 public class SelectionSort {
 
+    /**
+     * selection sort selects the minimum value every loop
+     * and swap the minimum value with index from 0 to len
+     * e.g
+     * 6, 2, 3, 5 -> 2, 6, 3, 5 -> 2, 3, 6, 5...
+     *
+     * @param arr
+     */
     public static void selectionSort(int arr[]){
         int min, index;
 
