@@ -29,11 +29,12 @@ public class JumpSearch {
         }
 
         // search number x may in the interval of index-m and index
-        int lastIndex = index - m;
         if(index > arr.length-1){
             index = arr.length-1;
         }
-        for (int i = lastIndex; i < index; i++) {
+        int lastIndex = index - m;
+
+        for (int i = lastIndex; i <= index; i++) {
             if(arr[i] == x){
                 return i;
             }
