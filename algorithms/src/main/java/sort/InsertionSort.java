@@ -6,9 +6,9 @@ import static sort.Utils.printArr;
 public class InsertionSort {
 
     /**
-     * iterate over array 1, 2, 3, ...
-     * key equals to arr[1, 2, 3...]
-     * arr[j+1] = arr[j] find the insert location and insert
+     * 1. iterate over array 1, 2, 3, ...
+     * 2. key equals to arr[1, 2, 3...]
+     * 3. arr[j+1] = arr[j] find the insert location and insert
      * @param arr
      */
     public static void insertionSort(int[] arr){
@@ -29,6 +29,5 @@ public class InsertionSort {
         printArr(arr, arr.length);
         insertionSort(arr);
         printArr(arr, arr.length);
-
     }
 }
