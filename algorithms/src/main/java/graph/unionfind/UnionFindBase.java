@@ -18,4 +18,19 @@ public abstract class UnionFindBase {
      * @param n
      */
     public abstract void union(int m, int n);
+
+
+    public void printIdArray(){
+        System.out.println(NUM);
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for (int i = 0; i < NUM-1; i++) {
+            sb.append(id[i]);
+            sb.append(',');
+            sb.append(' ');
+        }
+        sb.append(id[NUM-1]);
+        sb.append(']');
+        System.out.println(sb.toString());
+    }
 }
