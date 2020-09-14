@@ -1,8 +1,16 @@
 package graph.unionfind;
 
+import java.util.stream.IntStream;
+
 public abstract class UnionFindBase {
     protected int id[];  /* records the parent of node */
     protected int NUM;   /* number of nodes */
+
+    public UnionFindBase(int num){
+        this.NUM = num;
+        this.id = new int[num];
+        IntStream.range(0, num).forEach(i -> id[i] = i);
+    }
 
     /**
      * returns true if node m and node n are connected

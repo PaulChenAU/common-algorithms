@@ -10,9 +10,7 @@ import java.util.stream.IntStream;
 public class UnionFind extends UnionFindBase {
 
     public UnionFind(int num){
-        this.NUM = num;
-        this.id = new int[num];
-        IntStream.range(0, num).forEach(i -> id[i] = i);
+        super(num);
     }
 
     @Override
