@@ -27,6 +27,12 @@ public abstract class UnionFindBase {
      */
     public abstract void union(int m, int n);
 
+    /**
+     * find the root of node m
+     * @param m
+     */
+    public abstract int find(int m);
+
 
     public void printIdArray(){
         System.out.println(NUM);
