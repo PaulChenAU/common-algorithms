@@ -4,16 +4,27 @@ public class InOrder{
 
     /**
      * preorder: root -> left -> right
+     * 
+     * Dfs traversal: time complexity: O(n+m)
+     * n is the number of nodes
+     * m is the number of edges
+     *
+     * https://stackoverflow.com/questions/4547012/complexities-of-binary-tree-traversals/
+     * 4547029#:~:text=7%20Answers&text=In%2Dorder%2C%20Pre%2Dorder,Graph%2C%20the%20same
+     * %20applies%20here.
+     * The number of total edges in a binary tree is n-1, where n is the number of nodes
+     *
+     * The time complexity then becomes O(n+n-1) = O(n)
      * @param root
      */
-    public static void InOrderTravelsal(Node root){
+    public static void InOrderTraversal(Node root){
         if(root == null){
             return;
         }
 
-        InOrderTravelsal(root.left);
+        InOrderTraversal(root.left);
         System.out.println(root.val);
-        InOrderTravelsal(root.right);
+        InOrderTraversal(root.right);
     }
 
     public static void main(String[] args) {
@@ -25,6 +36,6 @@ public class InOrder{
         Node n1 = new Node(1,n3,n4);
         Node root = new Node(0,n1,n2);
 
-        InOrderTravelsal(root);
+        InOrderTraversal(root);
     }
 }

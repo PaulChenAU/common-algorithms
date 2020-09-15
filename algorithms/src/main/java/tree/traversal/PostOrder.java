@@ -1,6 +1,6 @@
 package tree.traversal;
 
-public class PreOrder{
+public class PostOrder{
 
     /**
      * preorder: root -> left -> right
@@ -15,20 +15,17 @@ public class PreOrder{
      * The number of total edges in a binary tree is n-1, where n is the number of nodes
      *
      * The time complexity then becomes O(n+n-1) = O(n)
-     *
      * @param root
      */
-    public static void preOrderTraversal(Node root){
+    public static void PostOrderTraversal(Node root){
         if(root == null){
             return;
         }
 
+        PostOrderTraversal(root.left);
+        PostOrderTraversal(root.right);
         System.out.println(root.val);
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
     }
-
-
 
     public static void main(String[] args) {
         Node n6 = new Node(6,null,null);
@@ -39,6 +36,6 @@ public class PreOrder{
         Node n1 = new Node(1,n3,n4);
         Node root = new Node(0,n1,n2);
 
-        preOrderTraversal(root);
+        PostOrderTraversal(root);
     }
 }
