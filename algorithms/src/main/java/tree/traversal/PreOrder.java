@@ -1,5 +1,10 @@
 package tree.traversal;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.concurrent.BlockingQueue;
+
 public class PreOrder{
 
     /**
@@ -28,6 +33,25 @@ public class PreOrder{
         preOrderTraversal(root.right);
     }
 
+    public static void preOrderTraversalNonRecursive(Node root){
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+
+        while (!(stack.isEmpty())){
+            Node node = stack.pop();
+            System.out.println(node.val);
+
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+
+            if(node.left != null){
+                stack.push(node.left);
+            }
+
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -40,5 +64,7 @@ public class PreOrder{
         Node root = new Node(0,n1,n2);
 
         preOrderTraversal(root);
+        System.out.println("==========");
+        preOrderTraversalNonRecursive(root);
     }
 }
