@@ -1,5 +1,7 @@
 package tree.traversal;
 
+import java.util.Stack;
+
 public class InOrder{
 
     /**
@@ -27,6 +29,23 @@ public class InOrder{
         InOrderTraversal(root.right);
     }
 
+    public static void InOrderTraversalNonRecursive(Node root){
+        Stack<Node> stack = new Stack<>();
+        Node cur = root;
+        while (cur != null || !stack.isEmpty()){
+            while (cur != null){
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            cur = stack.pop();
+            System.out.println(cur.val);
+            cur = cur.right;
+        }
+
+    }
+
+
     public static void main(String[] args) {
         Node n6 = new Node(6,null,null);
         Node n5 = new Node(5,null,null);
@@ -37,5 +56,8 @@ public class InOrder{
         Node root = new Node(0,n1,n2);
 
         InOrderTraversal(root);
+        System.out.println("=============");
+        InOrderTraversalNonRecursive(root);
+
     }
 }
