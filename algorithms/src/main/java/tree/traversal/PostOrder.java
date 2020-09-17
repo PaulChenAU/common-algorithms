@@ -1,5 +1,7 @@
 package tree.traversal;
 
+import java.util.Stack;
+
 public class PostOrder{
 
     /**
@@ -27,6 +29,41 @@ public class PostOrder{
         System.out.println(root.val);
     }
 
+    /**
+     * since the sequence of post order traversal is left->right->root
+     * we can use two stacks
+     * The first stack implements root->right->left traversal and we pop
+     * all the elements to the second stack
+     * From the second stack we can get left->right->root traversal
+     *
+     * @param root
+     */
+    public static void PostOrderTraversalNonRecursive(Node root){
+        Stack<Node> stacka = new Stack<>();
+        Stack<Node> stackb = new Stack<>();
+
+        stacka.push(root);
+        while (!stacka.isEmpty()){
+            Node node = stacka.pop();
+
+            stackb.push(node);
+            if(node.left != null){
+                stacka.push(node.left);
+            }
+
+            if(node.right != null){
+                stacka.push(node.right);
+            }
+        }
+
+        while (!stackb.isEmpty()){
+            Node node = stackb.pop();
+            System.out.println(node.val);
+        }
+
+    }
+
+
     public static void main(String[] args) {
         Node n6 = new Node(6,null,null);
         Node n5 = new Node(5,null,null);
@@ -37,5 +74,7 @@ public class PostOrder{
         Node root = new Node(0,n1,n2);
 
         PostOrderTraversal(root);
+        System.out.println("================");
+        PostOrderTraversalNonRecursive(root);
     }
 }
